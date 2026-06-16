@@ -1,0 +1,765 @@
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap");
+
+    :root {
+        --color-bg-primary: #f7f5f0;
+        --color-bg-card: #eeeae1;
+        --color-text-primary: #1e2019;
+        --color-text-secondary: #5a5c52;
+        --color-accent: #4a7c59;
+        --color-accent-light: #7ab893;
+        --color-accent-muted: #c8d8c0;
+        --color-border: #d6d0c4;
+        --color-border-light: #e8e4db;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --color-bg-primary: #1a1e17;
+            --color-bg-card: #222620;
+            --color-text-primary: #e8e6df;
+            --color-text-secondary: #8a8e80;
+            --color-accent: #7ab893;
+            --color-accent-light: #9fcfae;
+            --color-accent-muted: #2e4a37;
+            --color-border: #343830;
+            --color-border-light: #2a2e28;
+        }
+    }
+
+    body {
+        background-color: var(--color-bg-primary);
+        color: var(--color-text-primary);
+        margin: 0;
+        padding: 0;
+    }
+
+    /* ── ROOT ── */
+    .eco-root {
+        font-family: "DM Sans", sans-serif;
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+        background-color: var(--color-bg-primary);
+        color: var(--color-text-primary);
+    }
+
+    /* ── HEADER ── */
+    .eco-header {
+        margin-bottom: 2rem;
+        padding-bottom: 1.2rem;
+        border-bottom: 2px solid var(--color-text-primary);
+    }
+    .eco-tag {
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--color-accent);
+        background: var(--color-accent-muted);
+        padding: 3px 10px;
+        border-radius: 2px;
+        margin-bottom: 0.8rem;
+    }
+    .eco-title {
+        font-family: "DM Serif Display", serif;
+        font-size: 40px;
+        font-weight: 400;
+        margin: 0 0 0.3rem;
+        letter-spacing: -0.5px;
+        line-height: 1.1;
+    }
+    .eco-title span {
+        font-style: italic;
+        color: var(--color-accent);
+    }
+    .eco-subtitle {
+        font-size: 14px;
+        color: #fff;
+        margin: 0.5rem 0 0;
+        line-height: 1.6;
+    }
+
+    /* ── BODY GRID ── */
+    .eco-body {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-bottom: 2rem;
+        align-items: stretch;
+    }
+
+    /* ── MOCKUP ── */
+    .eco-mockup {
+        background: #0e1a10;
+        border-radius: 12px;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid var(--color-border);
+        min-height: 0;
+    }
+    .eco-mockup-img {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+    }
+    .eco-mockup-placeholder {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+        gap: 1rem;
+        color: var(--color-accent-light);
+        font-size: 13px;
+        text-align: center;
+        padding: 0;
+    }
+    .eco-mockup-icon {
+        font-size: 40px;
+        opacity: 0.6;
+    }
+
+    /* ── META ── */
+    .eco-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: flex-start;
+    }
+    .eco-desc {
+        font-size: 14px;
+        line-height: 1.75;
+        color: var(--color-text-primary);
+        margin: 0 0 0.8rem;
+        text-align: justify;
+    }
+
+    /* ── TABLE ── */
+    .eco-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    .eco-table tr {
+        border-bottom: 0.5px solid var(--color-border-light);
+    }
+    .eco-table tr:last-child {
+        border-bottom: none;
+    }
+    .eco-table td {
+        padding: 7px 0;
+        font-size: 12px;
+        vertical-align: top;
+    }
+    .eco-table td:first-child {
+        color: var(--color-text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 12px;
+        padding-right: 1rem;
+        white-space: nowrap;
+        padding-top: 10px;
+        font-weight: 500;
+    }
+    .eco-badge {
+        display: inline-block;
+        background: var(--color-accent);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 3px 9px;
+        border-radius: 3px;
+    }
+    .eco-badge-proposal {
+        background: var(--color-accent-muted);
+        color: var(--color-accent);
+    }
+    .eco-tag-pill {
+        display: inline-block;
+        border: 0.5px solid var(--color-border);
+        border-radius: 3px;
+        font-size: 12px;
+        padding: 2px 7px;
+        margin: 2px 2px 2px 0;
+        color: var(--color-text-primary);
+    }
+    .eco-link {
+        color: var(--color-accent);
+        font-size: 12px;
+        word-break: break-all;
+        text-decoration: none;
+        border-bottom: 1px solid var(--color-accent-muted);
+    }
+
+    /* ── DIVIDER ── */
+    .eco-divider {
+        border: none;
+        border-top: 0.5px solid var(--color-border);
+        margin: 1.8rem 0;
+    }
+
+    /* ── SECTION GRID ── */
+    .eco-sections {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-top: 0.5rem;
+    }
+    .eco-section h4 {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: var(--color-accent);
+        margin: 0 0 0.6rem;
+        font-weight: 600;
+    }
+    .eco-section p {
+        font-size: 13px;
+        line-height: 1.75;
+        margin: 0;
+        color: var(--color-text-primary);
+        text-align: justify;
+    }
+
+    /* ── TECH STACK HIGHLIGHT STRIP ── */
+    .eco-tech-strip {
+        background: var(--color-bg-card);
+        border: 0.5px solid var(--color-border);
+        border-radius: 10px;
+        padding: 1rem 1.2rem;
+        margin: 1.5rem 0;
+    }
+    .eco-tech-strip-label {
+        font-size: 9px;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--color-text-secondary);
+        margin-bottom: 0.6rem;
+        font-weight: 600;
+    }
+    .eco-tech-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-bottom: 0.5rem;
+    }
+    .eco-tech-group:last-child {
+        margin-bottom: 0;
+    }
+    .eco-tech-domain {
+        font-size: 9px;
+        color: var(--color-accent);
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        width: 100%;
+        margin-bottom: 0.2rem;
+        margin-top: 0.5rem;
+    }
+    .eco-tech-domain:first-child {
+        margin-top: 0;
+    }
+
+    /* ── SHOWCASES ── */
+    .eco-showcases {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+        margin-bottom: 1.2rem;
+    }
+    .eco-showcase-card {
+        border: 0.5px solid var(--color-border);
+        border-radius: 10px;
+        overflow: hidden;
+        background: var(--color-bg-card);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .eco-showcase-card.landscape {
+        grid-column: span 2;
+    }
+    .eco-img-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #0e1a10;
+    }
+    .eco-showcase-card.landscape .eco-img-container {
+        aspect-ratio: 16 / 9;
+    }
+    .eco-showcase-card.portrait .eco-img-container {
+        aspect-ratio: 9 / 16;
+        max-height: 400px;
+    }
+    .eco-showcase-card img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+    .eco-showcase-label {
+        padding: 0.8rem;
+        font-size: 12px;
+        color: var(--color-text-secondary);
+        text-align: center;
+        border-top: 0.5px solid var(--color-border);
+        line-height: 1.4;
+        background: var(--color-bg-card);
+    }
+
+    /* ── SHOWCASE SECTION HEADER ── */
+    .eco-section-label {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: var(--color-accent);
+        margin: 0 0 0.8rem;
+        font-weight: 600;
+    }
+
+    /* ── FOOTER ── */
+    .eco-footer {
+        border-top: 0.5px solid var(--color-border);
+        margin-top: 3rem;
+        padding-top: 2rem;
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1.5fr;
+        gap: 2rem;
+        font-size: 12px;
+        line-height: 1.6;
+        color: var(--color-text-secondary);
+    }
+    .eco-footer-col h5 {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--color-accent);
+        margin: 0 0 0.5rem;
+        font-weight: 600;
+    }
+    .eco-footer-col p {
+        margin: 0 0 2px;
+        color: var(--color-text-primary);
+        font-size: 12px;
+    }
+    .eco-footer-col a {
+        color: var(--color-text-primary);
+        text-decoration: none;
+        border-bottom: 0.5px solid var(--color-border);
+    }
+    .eco-footer-right {
+        text-align: right;
+    }
+
+    @media (max-width: 560px) {
+        .eco-body {
+            grid-template-columns: 1fr;
+        }
+        .eco-sections {
+            grid-template-columns: 1fr;
+        }
+        .eco-showcases {
+            grid-template-columns: 1fr;
+        }
+        .eco-footer {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        .eco-footer-right {
+            text-align: left;
+        }
+    }
+</style>
+
+<div class="eco-root">
+    <!-- ─── HEADER ─── -->
+    <div class="eco-header">
+        <div class="eco-tag">PKM-KC · Group Project · Semester 2</div>
+        <h1 class="eco-title">ECO<span>TRA</span></h1>
+        <p class="eco-subtitle">
+            <span style="color: var(--color-accent)"
+                >Ecosystem Optimization for Chili Cultivation Through AI and IoT
+                Automation</span
+            >
+            — an intelligent precision-farming prototype that detects crop
+            disease and automates pesticide spraying using CNN and IoT.
+        </p>
+    </div>
+
+    <!-- ─── BODY: MOCKUP + META ─── -->
+    <div class="eco-body">
+        <div class="eco-mockup">
+            <div class="eco-mockup-placeholder">
+                <div style="font-size: 11px; color: #4a6a4c; line-height: 1.5">
+                    <img
+                        src="./img/ECOTRA-PKMKC/pv11.png"
+                        alt="Mobile App & IoT Prototype"
+                        width="80%"
+                        height="auto"
+                        style="
+                            display: block;
+                            object-fit: contain;
+                            margin: 0 auto;
+                        "
+                    />
+                </div>
+            </div>
+        </div>
+
+        <div class="eco-meta">
+            <p class="eco-desc">
+                ECOTRA is a GROUP PROJECT — a PKM-KC (Student Creativity
+                Program) proposal developed by a 5-person multidisciplinary team
+                at Gunadarma University. As the <strong>AI Engineer</strong>, my
+                responsibility was to develop and deploy the machine learning
+                model (CNN MobileNetV2) for chili leaf disease detection, and
+                integrate the Google Gemini LLM as an interactive chatbot
+                assistant within the mobile application.
+            </p>
+            <table class="eco-table">
+                <tr>
+                    <td>Assignment</td>
+                    <td>PKM-KC Proposal · Semester 2</td>
+                </tr>
+                <tr>
+                    <td>Year</td>
+                    <td>2026</td>
+                </tr>
+                <tr>
+                    <td>Team Size</td>
+                    <td>5 Members (Group Project)</td>
+                </tr>
+                <tr>
+                    <td>My Role</td>
+                    <td style="padding-top: 10px; font-size: 12px">
+                        AI Engineer — ML & LLM Development on Embedded Device &
+                        Mobile App
+                    </td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td>
+                        <span class="eco-badge eco-badge-proposal"
+                            >Ongoing</span
+                        >
+                    </td>
+                </tr>
+                <tr>
+                    <td>Github</td>
+                    <td>
+                        <a
+                            href="https://github.com/Dickybulin26/ecotra-pkm"
+                            class="eco-link"
+                            target="_blank"
+                            >github.com/Dickybulin26/ecotra-pkm</a
+                        >
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- ─── TECH STRIP ─── -->
+    <div class="eco-tech-strip">
+        <div class="eco-tech-strip-label">Technology Stack</div>
+
+        <div class="eco-tech-domain">AI / Machine Learning</div>
+        <div class="eco-tech-group">
+            <span class="eco-tag-pill">Python</span>
+            <span class="eco-tag-pill">TensorFlow</span>
+            <span class="eco-tag-pill">CNN MobileNetV2</span>
+            <span class="eco-tag-pill">Google Gemini LLM</span>
+        </div>
+
+        <div class="eco-tech-domain">IoT Hardware</div>
+        <div class="eco-tech-group">
+            <span class="eco-tag-pill">Orange Pi Zero 3</span>
+            <span class="eco-tag-pill">Camera OV5640 5MP</span>
+            <span class="eco-tag-pill">DS18B20 Sensor</span>
+            <span class="eco-tag-pill">Soil Moisture Sensor</span>
+            <span class="eco-tag-pill">GPS NEO-6M</span>
+            <span class="eco-tag-pill">DC Pump + Nozzle</span>
+        </div>
+
+        <div class="eco-tech-domain">Mobile & Backend</div>
+        <div class="eco-tech-group">
+            <span class="eco-tag-pill">React Native</span>
+            <span class="eco-tag-pill">TypeScript</span>
+            <span class="eco-tag-pill">Expo</span>
+            <span class="eco-tag-pill">Firebase</span>
+            <span class="eco-tag-pill">MQTT</span>
+            <span class="eco-tag-pill">Figma</span>
+        </div>
+    </div>
+
+    <hr class="eco-divider" />
+
+    <!-- ─── 4 SECTIONS ─── -->
+    <div class="eco-sections">
+        <div class="eco-section">
+            <h4>Challenge</h4>
+            <p>
+                Chili crops in Indonesia are highly vulnerable to pest and
+                disease outbreaks — antraknosa, Thrips, and leaf-curl virus can
+                destroy up to 100% of a field if not detected early. Existing
+                IoT systems only provided rule-based alerts without visual
+                intelligence. Farmers still relied on "blanket spraying" which
+                wastes pesticide and harms the ecosystem. There was a clear need
+                for a system that could <em>see</em>, <em>decide</em>, and
+                <em>act</em> autonomously.
+            </p>
+        </div>
+
+        <div class="eco-section">
+            <h4>What I built</h4>
+            <p>
+                As the AI Engineer on this 5-person group project, I was
+                responsible for two AI pillars: (1) training a
+                <strong>CNN (MobileNetV2)</strong> model using Python and
+                TensorFlow to classify chili leaf diseases from camera input in
+                real-time on an edge device (Orange Pi Zero 3), and (2)
+                integrating the <strong>Google Gemini LLM API</strong> into the
+                React Native mobile app to serve as an interactive agricultural
+                chatbot — translating raw sensor data into plain-language
+                recommendations for farmers.
+            </p>
+        </div>
+
+        <div class="eco-section">
+            <h4>Impact</h4>
+            <p>
+                The ECOTRA proposal advances the concept of
+                <em>precision agriculture</em>: instead of spraying the entire
+                field, the system triggers a targeted
+                <strong>spot-spray</strong> only when disease is detected on a
+                specific plant. This approach has the potential to significantly
+                cut pesticide usage and prevent crop failure. The proposal also
+                directly supports Indonesia's national food sovereignty agenda,
+                which is the central theme for this PKM-KC cycle.
+            </p>
+        </div>
+
+        <div class="eco-section">
+            <h4>What I learned</h4>
+            <p>
+                Working in a 5-person cross-disciplinary team — spanning IoT,
+                AI, mobile development, UI/UX, and administration — taught me
+                the importance of clear
+                <strong>role boundaries and inter-domain communication</strong>.
+                I learned how to bridge AI research with embedded hardware
+                constraints, and how to frame a technical solution around a real
+                societal problem to craft a compelling, fundable research
+                proposal. Identifying the right problem is just as important as
+                building the right solution.
+            </p>
+        </div>
+    </div>
+
+    <hr class="eco-divider" />
+
+    <!-- ─── SHOWCASES ─── -->
+    <p class="eco-section-label">System Architecture & App Mockups</p>
+
+    <div class="eco-showcases">
+        <!-- Landscape Architecture -->
+        <div class="eco-showcase-card landscape">
+            <div class="eco-img-container">
+                <img
+                    src="./img/ECOTRA-PKMKC/sketsa_alur_proses_ecotra.png"
+                    alt="ECOTRA IoT Hardware Prototype"
+                    onerror="
+                        this.style.display = 'none';
+                        this.nextSibling.style.display = 'flex';
+                    "
+                />
+                <div
+                    style="
+                        display: none;
+                        height: 100%;
+                        width: 100%;
+                        background: #0e1a10;
+                        align-items: center;
+                        justify-content: center;
+                        color: #4a7c59;
+                        font-size: 24px;
+                    "
+                >
+                    🤖
+                </div>
+            </div>
+            <div class="eco-showcase-label">
+                IoT Hardware Prototype Schematic — Orange Pi Zero 3 + Sensor Array
+            </div>
+        </div>
+
+        <!-- Portrait Mobile Screens -->
+        <div class="eco-showcase-card portrait">
+            <div class="eco-img-container">
+                <img
+                    src="./img/ECOTRA-PKMKC/pv4.png"
+                    alt="ECOTRA Mobile App Home"
+                    onerror="
+                        this.style.display = 'none';
+                        this.nextSibling.style.display = 'flex';
+                    "
+                />
+                <div
+                    style="
+                        display: none;
+                        height: 100%;
+                        width: 100%;
+                        background: #0e1a10;
+                        align-items: center;
+                        justify-content: center;
+                        color: #4a7c59;
+                        font-size: 24px;
+                    "
+                ></div>
+            </div>
+            <div class="eco-showcase-label">
+                Mobile App — Real-time Monitoring Dashboard (Figma)
+            </div>
+        </div>
+
+        <div class="eco-showcase-card portrait">
+            <div class="eco-img-container">
+                <img
+                    src="./img/ECOTRA-PKMKC/pv9.png"
+                    alt="ECOTRA AI Chatbot"
+                    onerror="
+                        this.style.display = 'none';
+                        this.nextSibling.style.display = 'flex';
+                    "
+                />
+                <div
+                    style="
+                        display: none;
+                        height: 100%;
+                        width: 100%;
+                        background: #0e1a10;
+                        align-items: center;
+                        justify-content: center;
+                        color: #4a7c59;
+                        font-size: 24px;
+                    "
+                >
+                    🧠
+                </div>
+            </div>
+            <div class="eco-showcase-label">
+                AI Chat Assistant — Gemini LLM integration for farmer guidance
+            </div>
+        </div>
+
+        <div class="eco-showcase-card portrait">
+            <div class="eco-img-container">
+                <img
+                    src="./img/ECOTRA-PKMKC/pv8.png"
+                    alt="ECOTRA Automated Sprayer"
+                    onerror="
+                        this.style.display = 'none';
+                        this.nextSibling.style.display = 'flex';
+                    "
+                />
+                <div
+                    style="
+                        display: none;
+                        height: 100%;
+                        width: 100%;
+                        background: #0e1a10;
+                        align-items: center;
+                        justify-content: center;
+                        color: #4a7c59;
+                        font-size: 24px;
+                    "
+                >
+                    💧
+                </div>
+            </div>
+            <div class="eco-showcase-label">
+                Automated Spot-Spray — AI-triggered precision pesticide system
+            </div>
+        </div>
+
+        <div class="eco-showcase-card portrait">
+            <div class="eco-img-container">
+                <img
+                    src="./img/ECOTRA-PKMKC/pv7.png"
+                    alt="Mobile Burger Menu"
+                    onerror="
+                        this.style.display = 'none';
+                        this.nextSibling.style.display = 'flex';
+                    "
+                />
+                <div
+                    style="
+                        display: none;
+                        height: 100%;
+                        width: 100%;
+                        background: #0e1a10;
+                        align-items: center;
+                        justify-content: center;
+                        color: #4a7c59;
+                        font-size: 24px;
+                    "
+                >
+                    💧
+                </div>
+            </div>
+            <div class="eco-showcase-label">
+                Mobile Burger Menu
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── FOOTER ─── -->
+    <footer class="eco-footer">
+        <div class="eco-footer-col">
+            <h5>Candidate</h5>
+            <p style="font-weight: 600">Dicky Asqaeliany Ibnul Hakim</p>
+            <p>Gunadarma University · Computer System (Semester 2)</p>
+        </div>
+        <div class="eco-footer-col">
+            <h5>Contact Info</h5>
+            <p>
+                Gmail:
+                <a href="mailto:dickyasqaelani@gmail.com"
+                    >dickyasqaelani@gmail.com</a
+                >
+            </p>
+            <p>
+                LinkedIn:
+                <a
+                    href="https://www.linkedin.com/in/dicky-asqaeliany-ibnul-hakim/"
+                    target="_blank"
+                    >dicky-asqaeliany-ibnul-hakim</a
+                >
+            </p>
+        </div>
+        <div class="eco-footer-col eco-footer-right">
+            <h5>Submission</h5>
+            <p style="font-size: 11px; font-weight: 500">
+                Portfolio Submission for
+            </p>
+            <p
+                style="
+                    font-size: 12px;
+                    color: var(--color-accent);
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                    font-weight: 600;
+                "
+            >
+                Apple Developer Academy<br />Indonesia
+            </p>
+        </div>
+    </footer>
+</div>

@@ -1,0 +1,552 @@
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap");
+
+    :root {
+        --color-bg-primary: #ffffff;
+        --color-text-primary: #1c1c1e;
+        --color-text-secondary: #6e6e73;
+        --color-border-secondary: #d2d2d7;
+        --color-border-tertiary: #e5e5ea;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --color-bg-primary: #1c1c1e;
+            --color-text-primary: #f5f5f7;
+            --color-text-secondary: #8e8e93;
+            --color-border-secondary: #424245;
+            --color-border-tertiary: #3a3a3c;
+        }
+    }
+
+    body {
+        background-color: var(--color-bg-primary);
+        color: var(--color-text-primary);
+        margin: 0;
+        padding: 0;
+    }
+
+    .port-root {
+        font-family: "Inter", sans-serif;
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+        color: var(--color-text-primary);
+        background-color: var(--color-bg-primary);
+    }
+
+    .port-header {
+        border-bottom: 2.5px solid var(--color-text-primary);
+        padding-bottom: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    .port-title {
+        font-family: "Playfair Display", serif;
+        font-size: 38px;
+        font-weight: 700;
+        margin: 0 0 0.3rem;
+        letter-spacing: -0.5px;
+    }
+    .port-subtitle {
+        font-family: "Playfair Display", serif;
+        font-style: italic;
+        font-size: 15px;
+        color: #c8993c;
+        margin: 0;
+    }
+
+    .port-body {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-bottom: 2rem;
+        align-items: stretch;
+    }
+    .port-mockup {
+        background: #0b0f19;
+        border-radius: 18px;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid var(--color-border-secondary);
+        min-height: 0;
+    }
+    .port-mockup-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+    }
+
+    .port-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: flex-start;
+    }
+    .port-desc {
+        font-size: 14px;
+        line-height: 1.7;
+        color: var(--color-text-primary);
+        margin: 0 0 1rem;
+        text-align: justify;
+    }
+
+    .port-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: auto;
+    }
+    .port-table tr {
+        border-bottom: 0.5px solid var(--color-border-tertiary);
+    }
+    .port-table tr:last-child {
+        border-bottom: none;
+    }
+    .port-table td {
+        padding: 8px 0;
+        font-size: 12px;
+        vertical-align: top;
+    }
+    .port-table td:first-child {
+        color: var(--color-text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 10px;
+        padding-right: 1rem;
+        white-space: nowrap;
+        padding-top: 10px;
+    }
+
+    .status-badge {
+        display: inline-block;
+        background: #c8993c;
+        color: #fffdf7;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 4px 10px;
+        border-radius: 3px;
+    }
+    .tech-tag {
+        display: inline-block;
+        border: 0.5px solid var(--color-border-secondary);
+        border-radius: 4px;
+        font-size: 11px;
+        padding: 3px 8px;
+        margin: 2px 2px 2px 0;
+        color: var(--color-text-primary);
+    }
+    .port-link {
+        color: #c8993c;
+        font-size: 12px;
+        word-break: break-all;
+        text-decoration: none;
+        border-bottom: 1px solid #c8993c;
+    }
+
+    .port-sections {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-top: 1.5rem;
+    }
+    .port-section h4 {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: #c8993c;
+        margin: 0 0 0.6rem;
+        font-weight: 600;
+    }
+    .port-section p {
+        font-size: 13px;
+        line-height: 1.7;
+        margin: 0;
+        color: var(--color-text-primary);
+        text-align: justify;
+    }
+
+    .port-footer {
+        border-top: 0.5px solid var(--color-border-tertiary);
+        margin-top: 3rem;
+        padding-top: 2rem;
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1.5fr;
+        gap: 2rem;
+        font-size: 12px;
+        line-height: 1.6;
+        color: var(--color-text-secondary);
+    }
+    .port-footer-col h5 {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #c8993c;
+        margin: 0 0 0.5rem;
+        font-weight: 600;
+    }
+    .port-footer-col p {
+        margin: 0;
+        color: var(--color-text-primary);
+    }
+    /* .port-footer-content {
+    text-align: left;
+    font-size: 12px;
+    color: var(--color-text-primary);
+    line-height: 1.5;
+    margin-top: auto;
+  } */
+    .port-footer-col a {
+        color: var(--color-text-primary);
+        text-decoration: none;
+        border-bottom: 0.5px solid var(--color-border-secondary);
+    }
+    .port-footer-col a:hover {
+        color: #c8993c;
+        border-bottom-color: #c8993c;
+    }
+    .port-footer-right {
+        text-align: right;
+    }
+
+    .section-divider {
+        border: none;
+        border-top: 0.5px solid var(--color-border-tertiary);
+        margin: 1.5rem 0;
+    }
+
+    /* ── SHOWCASES ── */
+    .port-showcases {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    .port-showcase-card {
+        border: 0.5px solid var(--color-border-tertiary);
+        border-radius: 12px;
+        overflow: hidden;
+        background: var(--color-bg-primary);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+    .port-showcase-card.landscape {
+        grid-column: span 2;
+    }
+    .port-img-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #0b0f19;
+    }
+    .port-showcase-card.landscape .port-img-container {
+        aspect-ratio: 16 / 10;
+    }
+    .port-showcase-card.portrait .port-img-container {
+        aspect-ratio: 9 / 16;
+        max-height: 450px;
+    }
+    .port-showcase-card img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+    .port-showcase-label {
+        padding: 0.8rem;
+        font-size: 11px;
+        color: var(--color-text-secondary);
+        text-align: center;
+        border-top: 0.5px solid var(--color-border-tertiary);
+        line-height: 1.4;
+    }
+
+    @media (max-width: 560px) {
+        .port-body {
+            grid-template-columns: 1fr;
+        }
+        .port-sections {
+            grid-template-columns: 1fr;
+        }
+        .port-footer {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        .port-footer-right {
+            text-align: left;
+        }
+    }
+</style>
+
+<div class="port-root">
+    <div class="port-header">
+        <h1 class="port-title">AbsensiPro</h1>
+        <p class="port-subtitle">
+            AI-powered face recognition attendance system with real-time
+            biometric verification and dark glassmorphism interface.
+        </p>
+    </div>
+
+    <div class="port-body">
+        <div class="port-mockup">
+            <img
+                src="./img/absensipro_scan.jpg"
+                alt="AbsensiPro Register UI"
+                class="port-mockup-img"
+            />
+        </div>
+
+        <div class="port-meta">
+            <p class="port-desc">
+                AbsensiPro is a GROUP PROJECT — a Semester 1 UAS assignment
+                built with a team of two, where I served as the
+                <strong>AI Engineer</strong>. I modeled facial recognition
+                patterns to enable the system to verify whether a user's face at
+                scan-time matches their registered face, then integrated the
+                entire AI pipeline into a web platform and carried it through
+                deployment, testing, and production.
+            </p>
+            <table class="port-table">
+                <tr>
+                    <td>Assignment</td>
+                    <td>Class Assignment · Semester 1</td>
+                </tr>
+                <tr>
+                    <td>Nature</td>
+                    <td style="font-weight: 600; color: #c8993c">
+                        GROUP PROJECT (2 Members)
+                    </td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td>
+                        <span class="status-badge" style="background: #28a745"
+                            >Ongoing</span
+                        >
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tech</td>
+                    <td>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">OpenCV</span>
+                        <span class="tech-tag">Dlib</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">Home Server</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Role</td>
+                    <td style="font-size: 12px; padding-top: 10px">
+                        AI Engineer · Team Lead
+                    </td>
+                </tr>
+                <tr>
+                    <td>Github</td>
+                    <td>
+                        <a
+                            href="https://github.com/Dickybulin26/face_attendance_1kb04"
+                            class="port-link"
+                            target="_blank"
+                            >github.com/Dickybulin26/face_attendance_1kb04</a
+                        >
+                    </td>
+                </tr>
+                <tr>
+                    <td>Live Demo</td>
+                    <td>
+                        <a
+                            href="https://absensipro.dickybulin26.biz.id"
+                            class="port-link"
+                            target="_blank"
+                            >absensipro.dickybulin26.biz.id</a
+                        >
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <div class="port-sections">
+        <div class="port-section">
+            <h4>Challenge</h4>
+            <p>
+                Attendance in our class was still done manually — a slow,
+                error-prone process that depended entirely on paper or verbal
+                roll-calls. As a student who works with AI, I saw an opportunity
+                to solve this real, everyday problem using computer vision. The
+                goal was to replace the manual process entirely with a biometric
+                system that any webcam could power, with no extra hardware
+                needed.
+            </p>
+        </div>
+
+        <div class="port-section">
+            <h4>What I built</h4>
+            <p>
+                In this 2-person group project, I took on the role of
+                <strong>AI Engineer</strong>. I trained a facial recognition
+                model to capture and store a 128-dimensional embedding of each
+                user's face at registration, then measured the similarity
+                between that baseline and the face presented during live
+                scanning. I then integrated this AI model into a web platform
+                and led the full deployment pipeline — from testing and
+                debugging to pushing it into a production-ready server
+                environment.
+            </p>
+        </div>
+
+        <div class="port-section">
+            <h4>Impact</h4>
+            <p>
+                The system transformed our classroom's attendance process from
+                manual and fragmented to automated and modern. Lecturers could
+                monitor attendance in real time through a cloud-synced
+                dashboard, and the biometric verification layer reduced the
+                possibility of proxy attendance. The project demonstrated that a
+                small, focused team can create tools that make a real difference
+                in the learning environment around them.
+            </p>
+        </div>
+
+        <div class="port-section">
+            <h4>What I learned</h4>
+            <p>
+                Beyond the technical skills, this project taught me the value of
+                <strong>team management and cohesion</strong>. Working in a
+                small team meant that every decision mattered — and keeping our
+                collaboration tight and our communication clear was just as
+                important as writing good code. I learned that the best
+                solutions come not just from individual capability, but from a
+                team that stays aligned in solving the problems around them.
+            </p>
+        </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <h4
+        style="
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #c8993c;
+            margin: 0 0 1rem;
+            font-weight: 600;
+        "
+    >
+        System Interface & Showcases
+    </h4>
+    <div class="port-showcases">
+        <!-- Dashboard / Database (Landscape) -->
+        <div class="port-showcase-card landscape">
+            <div class="port-img-container">
+                <img
+                    src="./img/absensipro_database.png"
+                    alt="Core Database Dashboard"
+                />
+            </div>
+            <div class="port-showcase-label">
+                Core Database Admin Panel — Centralized User Management
+            </div>
+        </div>
+
+        <div class="port-showcase-card landscape">
+            <div class="port-img-container">
+                <img
+                    src="./img/absensipro_logs.png"
+                    alt="Database Logs & Calendar"
+                />
+            </div>
+            <div class="port-showcase-label">
+                Real-time Verification Logs & Attendance Calendar View
+            </div>
+        </div>
+    </div>
+
+    <div class="port-showcases">
+        <!-- Mobile UI (Portrait) -->
+        <div class="port-showcase-card portrait">
+            <div class="port-img-container">
+                <img
+                    src="./img/absensipro_register.jpg"
+                    alt="Mobile Face Registration"
+                />
+            </div>
+            <div class="port-showcase-label">
+                Mobile UI: Face Registration & Biometric Enrollment
+            </div>
+        </div>
+
+        <div class="port-showcase-card portrait">
+            <div class="port-img-container">
+                <img src="./img/absensipro_login.jpg" alt="Mobile Login Page" />
+            </div>
+            <div class="port-showcase-label">
+                Mobile UI: Secure Admin Access & Authentication
+            </div>
+        </div>
+    </div>
+
+    <footer class="port-footer">
+        <div class="port-footer-col">
+            <h5>Candidate</h5>
+            <div class="port-footer-content">
+                <p style="font-weight: 600; font-size: 12px">
+                    Dicky Asqaeliany Ibnul Hakim
+                </p>
+                <p style="font-size: 12px">
+                    Gunadarma University · Computer System (Semester 2)
+                </p>
+            </div>
+        </div>
+        <div class="port-footer-col">
+            <h5>Contact Info</h5>
+            <div class="port-footer-content">
+                <p style="font-size: 12px; margin-bottom: 2px">
+                    Gmail:
+                    <a href="mailto:dickyasqaelani@gmail.com"
+                        >dickyasqaelani@gmail.com</a
+                    >
+                </p>
+                <p style="font-size: 12px">
+                    LinkedIn:
+                    <a
+                        href="https://www.linkedin.com/in/dicky-asqaeliany-ibnul-hakim/"
+                        target="_blank"
+                        >dicky-asqaeliany-ibnul-hakim</a
+                    >
+                </p>
+            </div>
+        </div>
+        <div class="port-footer-col port-footer-right">
+            <h5>Submission</h5>
+            <div class="port-footer-content">
+                <p style="font-size: 12px; font-weight: 500">
+                    Portfolio Submission for
+                </p>
+                <p
+                    style="
+                        font-size: 12px;
+                        color: #c8993c;
+                        text-transform: uppercase;
+                        letter-spacing: 0.05em;
+                        font-weight: 600;
+                    "
+                >
+                    Apple Developer Academy <br />
+                    Indonesia
+                </p>
+            </div>
+        </div>
+    </footer>
+</div>

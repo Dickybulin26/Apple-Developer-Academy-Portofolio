@@ -1,0 +1,767 @@
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap");
+
+  :root {
+    --color-bg-primary: #f8fafc;
+    --color-bg-card: #f1f5f9;
+    --color-text-primary: #0f172a;
+    --color-text-secondary: #475569;
+    --color-accent: #4361ee;
+    --color-accent-light: #4895ef;
+    --color-accent-muted: #dbeafe;
+    --color-border: #e2e8f0;
+    --color-border-light: #f1f5f9;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-bg-primary: #0f172a;
+      --color-bg-card: #1e293b;
+      --color-text-primary: #f8fafc;
+      --color-text-secondary: #94a3b8;
+      --color-accent: #4cc9f0;
+      --color-accent-light: #4895ef;
+      --color-accent-muted: #1e3a8a;
+      --color-border: #334155;
+      --color-border-light: #1e293b;
+    }
+  }
+
+  body {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ── ROOT ── */
+  .smart-root {
+    font-family: "DM Sans", sans-serif;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+  }
+
+  /* ── HEADER ── */
+  .smart-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 2px solid var(--color-text-primary);
+  }
+  .smart-tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    background: var(--color-accent-muted);
+    padding: 3px 10px;
+    border-radius: 2px;
+    margin-bottom: 0.8rem;
+  }
+  .smart-title {
+    font-family: "DM Serif Display", serif;
+    font-size: 40px;
+    font-weight: 400;
+    margin: 0 0 0.3rem;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+  }
+  .smart-title span {
+    font-style: italic;
+    color: var(--color-accent);
+  }
+  .smart-subtitle {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    margin: 0.5rem 0 0;
+    line-height: 1.6;
+  }
+
+  /* ── BODY GRID ── */
+  .smart-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    align-items: stretch;
+  }
+
+  /* ── MOCKUP ── */
+  .smart-mockup {
+    background: #0f172a;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    min-height: 0;
+  }
+  .smart-mockup-img {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 75%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .smart-mockup-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    gap: 1rem;
+    color: var(--color-accent-light);
+    font-size: 13px;
+    text-align: center;
+    padding: 0;
+  }
+
+  /* ── META ── */
+  .smart-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: flex-start;
+  }
+  .smart-desc {
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--color-text-primary);
+    margin: 0 0 0.8rem;
+    text-align: justify;
+  }
+
+  /* ── TABLE ── */
+  .smart-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .smart-table tr {
+    border-bottom: 0.5px solid var(--color-border-light);
+  }
+  .smart-table tr:last-child {
+    border-bottom: none;
+  }
+  .smart-table td {
+    padding: 7px 0;
+    font-size: 12px;
+    vertical-align: top;
+  }
+  .smart-table td:first-child {
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 12px;
+    padding-right: 1rem;
+    white-space: nowrap;
+    padding-top: 10px;
+    font-weight: 500;
+  }
+  .smart-badge {
+    display: inline-block;
+    background: var(--color-accent);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 3px;
+  }
+  .smart-badge-status {
+    background: var(--color-accent-muted);
+    color: var(--color-accent);
+  }
+  .smart-tag-pill {
+    display: inline-block;
+    border: 0.5px solid var(--color-border);
+    border-radius: 3px;
+    font-size: 12px;
+    padding: 2px 7px;
+    margin: 2px 2px 2px 0;
+    color: var(--color-text-primary);
+  }
+  .smart-link {
+    color: var(--color-accent);
+    font-size: 12px;
+    word-break: break-all;
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-accent-muted);
+  }
+
+  /* ── DIVIDER ── */
+  .smart-divider {
+    border: none;
+    border-top: 0.5px solid var(--color-border);
+    margin: 1.8rem 0;
+  }
+
+  /* ── SECTION GRID ── */
+  .smart-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 0.5rem;
+  }
+  .smart-section h4 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-accent);
+    margin: 0 0 0.6rem;
+    font-weight: 600;
+  }
+  .smart-section p {
+    font-size: 13px;
+    line-height: 1.75;
+    margin: 0;
+    color: var(--color-text-primary);
+    text-align: justify;
+  }
+
+  /* ── TECH STACK HIGHLIGHT STRIP ── */
+  .smart-tech-strip {
+    background: var(--color-bg-card);
+    border: 0.5px solid var(--color-border);
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
+    margin: 1.5rem 0;
+  }
+  .smart-tech-strip-label {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+  }
+  .smart-tech-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.5rem;
+  }
+  .smart-tech-group:last-child {
+    margin-bottom: 0;
+  }
+  .smart-tech-domain {
+    font-size: 9px;
+    color: var(--color-accent);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    width: 100%;
+    margin-bottom: 0.2rem;
+    margin-top: 0.5rem;
+  }
+  .smart-tech-domain:first-child {
+    margin-top: 0;
+  }
+
+  /* ── SHOWCASES ── */
+  .smart-showcases {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin-bottom: 1.2rem;
+  }
+  .smart-showcase-card {
+    border: 0.5px solid var(--color-border);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--color-bg-card);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .smart-showcase-card.landscape {
+    grid-column: span 2;
+  }
+  .smart-img-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0f172a;
+  }
+  .smart-showcase-card.landscape .smart-img-container {
+    aspect-ratio: 16 / 9;
+  }
+  .smart-showcase-card.portrait .smart-img-container {
+    aspect-ratio: 9 / 16;
+    max-height: 400px;
+  }
+  .smart-showcase-card img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+  .smart-showcase-label {
+    padding: 0.8rem;
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    text-align: center;
+    border-top: 0.5px solid var(--color-border);
+    line-height: 1.4;
+    background: var(--color-bg-card);
+  }
+
+  /* ── SHOWCASE SECTION HEADER ── */
+  .smart-section-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-accent);
+    margin: 0 0 0.8rem;
+    font-weight: 600;
+  }
+
+  /* ── FOOTER ── */
+  .smart-footer {
+    border-top: 0.5px solid var(--color-border);
+    margin-top: 3rem;
+    padding-top: 2rem;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.5fr;
+    gap: 2rem;
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+  }
+  .smart-footer-col h5 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    margin: 0 0 0.5rem;
+    font-weight: 600;
+  }
+  .smart-footer-col p {
+    margin: 0 0 2px;
+    color: var(--color-text-primary);
+    font-size: 12px;
+  }
+  .smart-footer-col a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    border-bottom: 0.5px solid var(--color-border);
+  }
+  .smart-footer-right {
+    text-align: right;
+  }
+
+  @media (max-width: 560px) {
+    .smart-body {
+      grid-template-columns: 1fr;
+    }
+    .smart-sections {
+      grid-template-columns: 1fr;
+    }
+    .smart-showcases {
+      grid-template-columns: 1fr;
+    }
+    .smart-footer {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .smart-footer-right {
+      text-align: left;
+    }
+  }
+</style>
+
+<div class="smart-root">
+  <!-- ─── HEADER ─── -->
+  <div class="smart-header">
+    <div class="smart-tag">
+      IoT Project · Organization Project · SMKN 1 Bekasi
+    </div>
+    <h1 class="smart-title">SMART <span>HOME</span></h1>
+    <p class="smart-subtitle">
+      <span style="color: var(--color-accent)"
+        >Miniature Technology Smart Home System</span
+      >
+      — an IoT-based educational prototype featuring automated lighting,
+      security gates, and door control integrated with ESP32 and Google Home.
+    </p>
+  </div>
+
+  <!-- ─── BODY: MOCKUP + META ─── -->
+  <div class="smart-body">
+    <div class="smart-mockup">
+      <div class="smart-mockup-placeholder">
+        <img
+          src="./img/robotik/photo_1_2026-06-17_01-58-43.jpg"
+          alt="Smart Home Circuit Prototype"
+          class="smart-mockup-img"
+          style="object-fit: contain"
+        />
+      </div>
+    </div>
+
+    <div class="smart-meta">
+      <p class="smart-desc">
+        This SMART HOME system was a professional commission from
+        <strong>SMAN 2 Bekasi</strong>, executed by the
+        <strong>Robotik SMKN 1 Kota Bekasi</strong> organization which I
+        founded. As the <strong>Project Manager</strong>, I led a 5-person team
+        through a 3-month development cycle, overseeing everything from initial
+        client requirements gathering to the final delivery of a fully
+        functional IoT educational prototype.
+      </p>
+      <table class="smart-table">
+        <tr>
+          <td>Assignment</td>
+          <td>Client Project · SMAN 2 Bekasi</td>
+        </tr>
+        <tr>
+          <td>Year</td>
+          <td>2024</td>
+        </tr>
+        <tr>
+          <td>Team Size</td>
+          <td>5 Members</td>
+        </tr>
+        <tr>
+          <td>My Role</td>
+          <td style="padding-top: 10px; font-size: 12px">
+            Founder & Project Manager — Leadership, Client Relations & Technical
+            Oversight
+          </td>
+        </tr>
+        <tr>
+          <td>Status</td>
+          <td>
+            <span class="smart-badge smart-badge-status">Completed</span>
+          </td>
+        </tr>
+        <tr>
+          <td>Documentation</td>
+          <td>
+            <a
+              href="https://drive.google.com/file/d/1bhf-PvhIxOSl1jkcsp1IY9pjx3wA5I4F/view?usp=sharing"
+              class="smart-link"
+              target="_blank"
+              >Proyek Robotik Miniatur Technology Smart Home System</a
+            >
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ─── TECH STRIP ─── -->
+  <div class="smart-tech-strip">
+    <div class="smart-tech-strip-label">Technology Stack</div>
+
+    <div class="smart-tech-domain">Microcontroller & Connectivity</div>
+    <div class="smart-tech-group">
+      <span class="smart-tag-pill">ESP32 (WiFi/Bluetooth)</span>
+      <span class="smart-tag-pill">Sinric Pro</span>
+      <span class="smart-tag-pill">Google Home Integration</span>
+      <span class="smart-tag-pill">Arduino IDE</span>
+    </div>
+
+    <div class="smart-tech-domain">Sensors & Actuators</div>
+    <div class="smart-tech-group">
+      <span class="smart-tag-pill">LDR (Light Sensor)</span>
+      <span class="smart-tag-pill">DHT11 (Temp/Humidity)</span>
+      <span class="smart-tag-pill">Servo Motor</span>
+      <span class="smart-tag-pill">Modified DVD Motor</span>
+      <span class="smart-tag-pill">Relay Module</span>
+      <span class="smart-tag-pill">HPL LED (High Power)</span>
+    </div>
+
+    <div class="smart-tech-domain">Hardware Components</div>
+    <div class="smart-tech-group">
+      <span class="smart-tag-pill">Step Up Converter</span>
+      <span class="smart-tag-pill">Step Down Buck Converter</span>
+      <span class="smart-tag-pill">AWG 26 Cabling</span>
+      <span class="smart-tag-pill">12V/5V Adaptor</span>
+      <span class="smart-tag-pill">Fritzing Design</span>
+    </div>
+  </div>
+
+  <hr class="smart-divider" />
+
+  <!-- ─── 4 SECTIONS ─── -->
+  <div class="smart-sections">
+    <div class="smart-section">
+      <h4>Challenge</h4>
+      <p>
+        Developing a comprehensive smart home miniaturization that is both
+        cost-effective and highly functional for educational purposes. We needed
+        to create robust mechanical systems for gates and doors using limited
+        resources. A key challenge was repurposing electronic waste,
+        specifically modifying internal DVD player motors to act as precise gate
+        actuators, requiring custom mechanical adjustments and electrical
+        isolation via relays.
+      </p>
+    </div>
+
+    <div class="smart-section">
+      <h4>What I built</h4>
+      <p>
+        As the Project Manager and Organization Founder, I didn't just build a
+        device; I built the
+        <strong>workflow and team structure</strong> required to deliver a
+        professional product. I managed the 3-month timeline, coordinated
+        between the hardware and software sub-teams, and ensured that our
+        technical implementation—from ESP32 logic to the mechanical gate
+        systems—strictly aligned with the client's educational requirements.
+      </p>
+    </div>
+
+    <div class="smart-section">
+      <h4>Impact</h4>
+      <p>
+        The project successfully transitioned our school organization from a
+        hobbyist club to a
+        <strong>productive tech entity</strong> capable of handling real-world
+        clients. Delivering this system to SMAN 2 Bekasi provided them with a
+        high-quality educational tool while establishing Robotik SMKN 1's
+        reputation for excellence. It proved that student-led organizations can
+        contribute meaningful, functional technology to the community.
+      </p>
+    </div>
+
+    <div class="smart-section">
+      <h4>What I learned</h4>
+      <p>
+        I learned to bridge the gap between a client's high-level vision and the
+        concrete technical steps required to bring it to life. Beyond the
+        engineering work, this project taught me how to lead a team through the
+        pressure of a three-month deadline, manage project resources, and
+        maintain clear, consistent communication between technical teams and
+        those without a technical background.
+      </p>
+    </div>
+  </div>
+
+  <hr class="smart-divider" />
+
+  <!-- ─── SHOWCASES ─── -->
+  <p class="smart-section-label">Hardware Prototype & Implementation</p>
+
+  <div class="smart-showcases">
+    <!-- Landscape Main Photo -->
+    <div class="smart-showcase-card landscape">
+      <div class="smart-img-container">
+        <img
+          src="./img/robotik/photo_9_2026-06-16_22-24-15.jpg"
+          alt="Smart Home Miniature Overview"
+          onerror="
+            this.style.display = 'none';
+            this.nextSibling.style.display = 'flex';
+          "
+        />
+        <div
+          style="
+            display: none;
+            height: 100%;
+            width: 100%;
+            background: #0f172a;
+            align-items: center;
+            justify-content: center;
+            color: #4361ee;
+            font-size: 24px;
+          "
+        >
+          🏠
+        </div>
+      </div>
+      <div class="smart-showcase-label">
+        Final Prototype — Miniature Smart Home with integrated IoT components
+      </div>
+    </div>
+
+    <!-- Portrait Photos -->
+    <div class="smart-showcase-card portrait">
+      <div class="smart-img-container">
+        <img
+          src="./img/robotik/photo_3_2026-06-17_01-58-43.jpg"
+          alt="Gate Mechanism"
+          onerror="
+            this.style.display = 'none';
+            this.nextSibling.style.display = 'flex';
+          "
+        />
+        <div
+          style="
+            display: none;
+            height: 100%;
+            width: 100%;
+            background: #0f172a;
+            align-items: center;
+            justify-content: center;
+            color: #4361ee;
+            font-size: 24px;
+          "
+        ></div>
+      </div>
+      <div class="smart-showcase-label">Final Product</div>
+    </div>
+
+    <div class="smart-showcase-card portrait">
+      <div class="smart-img-container">
+        <img
+          src="./img/robotik/IMG_20240831_104036.jpg"
+          alt="Internal Circuitry"
+          onerror="
+            this.style.display = 'none';
+            this.nextSibling.style.display = 'flex';
+          "
+        />
+        <div
+          style="
+            display: none;
+            height: 100%;
+            width: 100%;
+            background: #0f172a;
+            align-items: center;
+            justify-content: center;
+            color: #4361ee;
+            font-size: 24px;
+          "
+        >
+          🔌
+        </div>
+      </div>
+      <div class="smart-showcase-label">
+        Discussion with Client about Project Prototype
+      </div>
+    </div>
+
+    <!-- <div class="smart-showcase-card portrait">
+      <div class="smart-img-container">
+        <img
+          src="./img/robotik/IMG_20240831_104005.jpg"
+          alt="Smart Lighting"
+          onerror="
+            this.style.display = 'none';
+            this.nextSibling.style.display = 'flex';
+          "
+        />
+        <div
+          style="
+            display: none;
+            height: 100%;
+            width: 100%;
+            background: #0f172a;
+            align-items: center;
+            justify-content: center;
+            color: #4361ee;
+            font-size: 24px;
+          "
+        >
+          💡
+        </div>
+      </div>
+      <div class="smart-showcase-label">
+        Smart Lighting — HPL LED automation via LDR sensor
+      </div>
+    </div>
+
+    <div class="smart-showcase-card portrait">
+      <div class="smart-img-container">
+        <img
+          src="./img/robotik/IMG_20240831_104014.jpg"
+          alt="Exhibition Presentation"
+          onerror="
+            this.style.display = 'none';
+            this.nextSibling.style.display = 'flex';
+          "
+        />
+        <div
+          style="
+            display: none;
+            height: 100%;
+            width: 100%;
+            background: #0f172a;
+            align-items: center;
+            justify-content: center;
+            color: #4361ee;
+            font-size: 24px;
+          "
+        >
+          🏆
+        </div>
+      </div>
+      <div class="smart-showcase-label">
+        Exhibition — Presenting the Smart Home prototype
+      </div>
+    </div> -->
+  </div>
+
+  <div class="smart-showcase-card landscape">
+    <div class="smart-img-container">
+      <img
+        src="./img/robotik/photo_42_2026-06-16_22-24-15.jpg"
+        alt="Smart Home Miniature Overview"
+        onerror="
+          this.style.display = 'none';
+          this.nextSibling.style.display = 'flex';
+        "
+      />
+      <div
+        style="
+          display: none;
+          height: 100%;
+          width: 100%;
+          background: #0f172a;
+          align-items: center;
+          justify-content: center;
+          color: #4361ee;
+          font-size: 24px;
+        "
+      >
+        🏠
+      </div>
+    </div>
+    <div class="smart-showcase-label">Last Client Meeting</div>
+  </div>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="smart-footer">
+    <div class="smart-footer-col">
+      <h5>Candidate</h5>
+      <p style="font-weight: 600">Dicky Asqaeliany Ibnul Hakim</p>
+      <p>Gunadarma University · Computer System</p>
+    </div>
+    <div class="smart-footer-col">
+      <h5>Contact Info</h5>
+      <p>
+        Gmail:
+        <a href="mailto:dickyasqaelani@gmail.com">dickyasqaelani@gmail.com</a>
+      </p>
+      <p>
+        LinkedIn:
+        <a
+          href="https://www.linkedin.com/in/dicky-asqaeliany-ibnul-hakim/"
+          target="_blank"
+          >dicky-asqaeliany-ibnul-hakim</a
+        >
+      </p>
+    </div>
+    <div class="smart-footer-col smart-footer-right">
+      <h5>Submission</h5>
+      <p style="font-size: 11px; font-weight: 500">Portfolio Submission for</p>
+      <p
+        style="
+          font-size: 12px;
+          color: var(--color-accent);
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          font-weight: 600;
+        "
+      >
+        Apple Developer Academy<br />Indonesia
+      </p>
+    </div>
+  </footer>
+</div>
