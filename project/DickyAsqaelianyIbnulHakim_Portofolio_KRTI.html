@@ -1,0 +1,816 @@
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap");
+
+  :root {
+    --color-bg-primary: #fafafa;
+    --color-bg-card: #f2f2f4;
+    --color-text-primary: #18181b;
+    --color-text-secondary: #3f3f46;
+    --color-accent: #6d28d9;
+    --color-accent-light: #8b5cf6;
+    --color-accent-muted: #ede9fe;
+    --color-border: #e4e4e7;
+    --color-border-light: #f1f1f4;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-bg-primary: #121214;
+      --color-bg-card: #1c1c20;
+      --color-text-primary: #f4f4f5;
+      --color-text-secondary: #d4d4d8;
+      --color-accent: #a78bfa;
+      --color-accent-light: #c4b5fd;
+      --color-accent-muted: #2e1065;
+      --color-border: #2e2e33;
+      --color-border-light: #232327;
+    }
+  }
+
+  body {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ── ROOT ── */
+  .krti-root {
+    font-family: "Space Grotesk", sans-serif;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+  }
+
+  .krti-back {
+    display: inline-block;
+    font-family: "Space Mono", ui-monospace, Menlo, Consolas, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--color-accent);
+    margin-bottom: 1.5rem;
+    transition: opacity 0.2s ease;
+  }
+  .krti-back:hover {
+    opacity: 0.7;
+  }
+
+  /* ── HEADER ── */
+  .krti-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 2px solid var(--color-text-primary);
+  }
+  .krti-tag {
+    display: inline-block;
+    font-family: "Space Mono", monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    background: var(--color-accent-muted);
+    padding: 3px 10px;
+    border-radius: 2px;
+    margin-bottom: 0.8rem;
+  }
+  .krti-title {
+    font-size: 40px;
+    font-weight: 700;
+    margin: 0 0 0.3rem;
+    letter-spacing: -1px;
+    line-height: 1.1;
+  }
+  .krti-title span {
+    color: var(--color-accent);
+  }
+  .krti-subtitle {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    margin: 0.5rem 0 0;
+    line-height: 1.6;
+  }
+
+  /* ── BODY GRID ── */
+  .krti-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    align-items: stretch;
+  }
+
+  /* ── MOCKUP ── */
+  .krti-mockup {
+    background: #101014;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    min-height: 0;
+  }
+  .krti-mockup-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ── META ── */
+  .krti-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: flex-start;
+  }
+  .krti-desc {
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--color-text-primary);
+    margin: 0 0 0.8rem;
+    text-align: justify;
+  }
+
+  /* ── TABLE ── */
+  .krti-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .krti-table tr {
+    border-bottom: 0.5px solid var(--color-border-light);
+  }
+  .krti-table tr:last-child {
+    border-bottom: none;
+  }
+  .krti-table td {
+    padding: 7px 0;
+    font-size: 12px;
+    vertical-align: top;
+  }
+  .krti-table td:first-child {
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 11px;
+    padding-right: 1rem;
+    white-space: nowrap;
+    padding-top: 10px;
+    font-weight: 500;
+  }
+  .krti-badge {
+    display: inline-block;
+    background: var(--color-accent);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 3px;
+  }
+  .krti-badge-status {
+    background: var(--color-accent-muted);
+    color: var(--color-accent);
+  }
+  .krti-tag-pill {
+    display: inline-block;
+    border: 0.5px solid var(--color-border);
+    border-radius: 3px;
+    font-size: 12px;
+    padding: 2px 7px;
+    margin: 2px 2px 2px 0;
+    color: var(--color-text-primary);
+  }
+  .krti-link {
+    color: var(--color-accent);
+    font-size: 12px;
+    word-break: break-all;
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-accent-muted);
+  }
+
+  /* ── DIVIDER ── */
+  .krti-divider {
+    border: none;
+    border-top: 0.5px solid var(--color-border);
+    margin: 1.8rem 0;
+  }
+
+  /* ── SECTION GRID ── */
+  .krti-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 0.5rem;
+  }
+  .krti-section h4 {
+    font-family: "Space Mono", monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-accent);
+    margin: 0 0 0.6rem;
+    font-weight: 700;
+  }
+  .krti-section p {
+    font-size: 13px;
+    line-height: 1.75;
+    margin: 0;
+    color: var(--color-text-primary);
+    text-align: justify;
+  }
+
+  /* ── TECH STACK HIGHLIGHT STRIP ── */
+  .krti-tech-strip {
+    background: var(--color-bg-card);
+    border: 0.5px solid var(--color-border);
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
+    margin: 1.5rem 0;
+  }
+  .krti-tech-strip-label {
+    font-family: "Space Mono", monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.6rem;
+    font-weight: 700;
+  }
+  .krti-tech-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.5rem;
+  }
+  .krti-tech-group:last-child {
+    margin-bottom: 0;
+  }
+  .krti-tech-domain {
+    font-size: 9px;
+    color: var(--color-accent);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    width: 100%;
+    margin-bottom: 0.2rem;
+    margin-top: 0.5rem;
+  }
+  .krti-tech-domain:first-child {
+    margin-top: 0;
+  }
+
+  /* ── SHOWCASES ── */
+  .krti-showcases {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin-bottom: 1.2rem;
+  }
+  .krti-showcase-card {
+    border: 0.5px solid var(--color-border);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--color-bg-card);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .krti-showcase-card.landscape {
+    grid-column: span 2;
+  }
+  .krti-img-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #101014;
+  }
+  .krti-showcase-card.landscape .krti-img-container {
+    aspect-ratio: 16 / 9;
+  }
+  .krti-showcase-card.portrait .krti-img-container {
+    aspect-ratio: 9 / 16;
+    max-height: 400px;
+  }
+  .krti-showcase-card img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+  .krti-showcase-label {
+    padding: 0.8rem;
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    text-align: center;
+    border-top: 0.5px solid var(--color-border);
+    line-height: 1.4;
+    background: var(--color-bg-card);
+  }
+
+  /* ── SHOWCASE SECTION HEADER ── */
+  .krti-section-label {
+    font-family: "Space Mono", monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-accent);
+    margin: 0 0 0.8rem;
+    font-weight: 700;
+  }
+
+  /* ── FOOTER ── */
+  .krti-footer {
+    border-top: 0.5px solid var(--color-border);
+    margin-top: 3rem;
+    padding-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+  }
+  .krti-footer-col h5 {
+    font-family: "Space Mono", monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    margin: 0 0 0.5rem;
+    font-weight: 700;
+  }
+  .krti-footer-col p {
+    margin: 0 0 2px;
+    color: var(--color-text-primary);
+  }
+  .krti-footer-col a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    border-bottom: 0.5px solid var(--color-border);
+  }
+  .krti-footer-col a:hover {
+    color: var(--color-accent);
+    border-bottom-color: var(--color-accent);
+  }
+
+  @media (max-width: 560px) {
+    .krti-body {
+      grid-template-columns: 1fr;
+    }
+    .krti-mockup {
+      min-height: 260px;
+    }
+    .krti-sections {
+      grid-template-columns: 1fr;
+    }
+    .krti-showcases {
+      grid-template-columns: 1fr;
+    }
+    .krti-showcase-card.landscape {
+      grid-column: span 1;
+    }
+    .krti-footer {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .krti-title {
+      font-size: 32px;
+    }
+  }
+</style>
+
+<div class="krti-root">
+  <a class="krti-back" href="../index.html">← Back to Portfolio</a>
+  <!-- ─── HEADER ─── -->
+  <div class="krti-header">
+    <div class="krti-tag">
+      National Competition · KRTI 2026 · Best Prototype
+    </div>
+    <h1 class="krti-title">NATIONAL DRONE <span>COMPETITION</span></h1>
+    <p class="krti-subtitle">
+      <span style="color: var(--color-accent)"
+        >Kontes Robot Terbang Indonesia (KRTI) 2026</span
+      >
+      — Indonesia's national flying-robot competition hosted by Institut
+      Teknologi Kalimantan, where our Universitas Gunadarma team designed,
+      built, and field-tested a fixed-wing UAV and brought home the
+      <strong>Best Prototype</strong> award.
+    </p>
+  </div>
+
+  <!-- ─── BODY: MOCKUP + META ─── -->
+  <div class="krti-body">
+    <div class="krti-mockup">
+      <img
+        src="../img/KRTI/photo_4_2026-10-02_23-28-29.jpg"
+        alt="Fixed-wing UAV on the flight line at KRTI 2026"
+        class="krti-mockup-img"
+      />
+    </div>
+
+    <div class="krti-meta">
+      <p class="krti-desc">
+        KRTI is a national-level competition where university teams across
+        Indonesia compete with flying robots they design from scratch. Our
+        entry was a fixed-wing UAV built over months of design iterations,
+        bench tests, and field trials. I worked on the
+        <strong>build and integration of the aircraft</strong> — from airframe
+        assembly and avionics wiring to telemetry setup and pre-flight checks
+        — culminating in the team being awarded
+        <strong>Best Prototype</strong> at KRTI 2026.
+      </p>
+      <table class="krti-table">
+        <tr>
+          <td>Assignment</td>
+          <td>National Competition · KRTI 2026</td>
+        </tr>
+        <tr>
+          <td>Event</td>
+          <td>
+            Kontes Robot Terbang Indonesia — Institut Teknologi Kalimantan
+          </td>
+        </tr>
+        <tr>
+          <td>Category</td>
+          <td>Fixed-Wing UAV</td>
+        </tr>
+        <tr>
+          <td>Team</td>
+          <td>Universitas Gunadarma</td>
+        </tr>
+        <tr>
+          <td>My Role</td>
+          <td style="padding-top: 10px; font-size: 12px">
+            UAV Builder — Airframe Assembly, Avionics Integration & Telemetry
+          </td>
+        </tr>
+        <tr>
+          <td>Result</td>
+          <td>
+            <span class="krti-badge">Best Prototype</span>
+          </td>
+        </tr>
+        <tr>
+          <td>Status</td>
+          <td>
+            <span class="krti-badge krti-badge-status">Completed</span>
+          </td>
+        </tr>
+        <tr>
+          <td>Tech</td>
+          <td>
+            <span class="krti-tag-pill">Flight Controller</span>
+            <span class="krti-tag-pill">Telemetry</span>
+            <span class="krti-tag-pill">Mission Planner</span>
+            <span class="krti-tag-pill">RC Systems</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ─── TECH STRIP ─── -->
+  <div class="krti-tech-strip">
+    <div class="krti-tech-strip-label">Technology Stack</div>
+
+    <div class="krti-tech-domain">Airframe & Propulsion</div>
+    <div class="krti-tech-group">
+      <span class="krti-tag-pill">Foam Fixed-Wing Airframe</span>
+      <span class="krti-tag-pill">Brushless Motor</span>
+      <span class="krti-tag-pill">ESC</span>
+      <span class="krti-tag-pill">LiPo Battery</span>
+      <span class="krti-tag-pill">Propeller</span>
+    </div>
+
+    <div class="krti-tech-domain">Avionics & Flight Control</div>
+    <div class="krti-tech-group">
+      <span class="krti-tag-pill">Flight Controller</span>
+      <span class="krti-tag-pill">RC Receiver & Transmitter</span>
+      <span class="krti-tag-pill">Telemetry Module</span>
+      <span class="krti-tag-pill">Servo Surfaces</span>
+      <span class="krti-tag-pill">Power Distribution</span>
+    </div>
+
+    <div class="krti-tech-domain">Ground Station & Testing</div>
+    <div class="krti-tech-group">
+      <span class="krti-tag-pill">Mission Planner GCS</span>
+      <span class="krti-tag-pill">Laptop Ground Station</span>
+      <span class="krti-tag-pill">Catapult Launch Rail</span>
+      <span class="krti-tag-pill">Pre-flight Checklist</span>
+    </div>
+  </div>
+
+  <hr class="krti-divider" />
+
+  <!-- ─── 4 SECTIONS ─── -->
+  <div class="krti-sections">
+    <div class="krti-section">
+      <h4>Challenge</h4>
+      <p>
+        National competitions leave no room for guesswork — the UAV had to be
+        reliable enough to survive repeated field trials, transportable between
+        cities, and compliant with a strict rulebook on size, weight, and
+        flight behavior. Weather at the field is unpredictable, and every
+        failed launch costs time we don't have, so the aircraft needed to be
+        right the first time it left the rail.
+      </p>
+    </div>
+
+    <div class="krti-section">
+      <h4>What I built</h4>
+      <p>
+        I took charge of the hands-on build and integration: assembling and
+        balancing the airframe, wiring the avionics bay — flight controller,
+        ESCs, servos, and battery — and configuring the telemetry link between
+        the aircraft and our laptop ground station. On top of that, I ran
+        pre-flight checklists and supported the team through every bench test
+        and field trial leading up to the competition.
+      </p>
+    </div>
+
+    <div class="krti-section">
+      <h4>Impact</h4>
+      <p>
+        The aircraft performed consistently through the field rounds and the
+        team brought home the <strong>Best Prototype</strong> award at KRTI
+        2026. Representing Universitas Gunadarma on a national stage proved
+        that our team can deliver engineering work that stands up to scrutiny
+        alongside universities from across Indonesia — and put a concrete,
+        awarded result behind everything we had been practicing all along.
+      </p>
+    </div>
+
+    <div class="krti-section">
+      <h4>What I learned</h4>
+      <p>
+        Field engineering teaches discipline that desk work never can: how a
+        single loose connector or badly balanced surface can end a flight, and
+        why checklists and redundancy matter more than clever designs. I also
+        learned to stay calm and methodical under competition pressure, and how
+        a team that trusts each other's roles can turn months of messy
+        iteration into a single, successful launch.
+      </p>
+    </div>
+  </div>
+
+  <hr class="krti-divider" />
+
+  <!-- ─── SHOWCASES ─── -->
+  <p class="krti-section-label">Competition & Field Documentation</p>
+
+  <div class="krti-showcases">
+    <!-- Landscape: Award -->
+    <div class="krti-showcase-card landscape">
+      <div class="krti-img-container">
+        <img
+          src="../img/KRTI/final-award.jpg"
+          alt="Best Prototype award ceremony at KRTI 2026"
+          onerror="
+            this.style.display = 'none';
+            this.nextElementSibling.style.display = 'flex';
+          "
+        />
+        <div
+          style="
+            display: none;
+            height: 100%;
+            width: 100%;
+            background: #101014;
+            align-items: center;
+            justify-content: center;
+            color: #a78bfa;
+            font-size: 24px;
+          "
+        >
+          🏆
+        </div>
+      </div>
+      <div class="krti-showcase-label">
+        Best Prototype Award — KRTI 2026, Institut Teknologi Kalimantan
+      </div>
+    </div>
+
+    <!-- Portrait: Assembly -->
+    <div class="krti-showcase-card portrait">
+      <div class="krti-img-container">
+        <img
+          src="../img/KRTI/photo_7_2026-10-02_23-28-29.jpg"
+          alt="Avionics integration inside the fuselage"
+          onerror="
+            this.style.display = 'none';
+            this.nextElementSibling.style.display = 'flex';
+          "
+        />
+        <div
+          style="
+            display: none;
+            height: 100%;
+            width: 100%;
+            background: #101014;
+            align-items: center;
+            justify-content: center;
+            color: #a78bfa;
+            font-size: 24px;
+          "
+        >
+          🔧
+        </div>
+      </div>
+      <div class="krti-showcase-label">
+        Avionics Integration — flight controller, battery & wiring
+      </div>
+    </div>
+
+    <!-- Portrait: Launch rail -->
+    <div class="krti-showcase-card portrait">
+      <div class="krti-img-container">
+        <img
+          src="../img/KRTI/photo_3_2026-10-02_23-28-29.jpg"
+          alt="UAV on the catapult launch rail"
+          onerror="
+            this.style.display = 'none';
+            this.nextElementSibling.style.display = 'flex';
+          "
+        />
+        <div
+          style="
+            display: none;
+            height: 100%;
+            width: 100%;
+            background: #101014;
+            align-items: center;
+            justify-content: center;
+            color: #a78bfa;
+            font-size: 24px;
+          "
+        >
+          ✈️
+        </div>
+      </div>
+      <div class="krti-showcase-label">
+        Field Trial — catapult launch rail setup
+      </div>
+    </div>
+  </div>
+
+  <div class="krti-showcases">
+    <!-- Landscape: Ground station -->
+    <div class="krti-showcase-card landscape">
+      <div class="krti-img-container">
+        <img
+          src="../img/KRTI/photo_9_2026-10-02_23-28-29.jpg"
+          alt="Ground control station with telemetry laptop"
+          onerror="
+            this.style.display = 'none';
+            this.nextElementSibling.style.display = 'flex';
+          "
+        />
+        <div
+          style="
+            display: none;
+            height: 100%;
+            width: 100%;
+            background: #101014;
+            align-items: center;
+            justify-content: center;
+            color: #a78bfa;
+            font-size: 24px;
+          "
+        >
+          📡
+        </div>
+      </div>
+      <div class="krti-showcase-label">
+        Ground Control Station — telemetry tracking during field trials
+      </div>
+    </div>
+
+    <!-- Landscape: Workshop -->
+    <div class="krti-showcase-card landscape">
+      <div class="krti-img-container">
+        <img
+          src="../img/KRTI/photo_1_2026-10-02_23-28-29.jpg"
+          alt="Airframe assembly in the workshop"
+          onerror="
+            this.style.display = 'none';
+            this.nextElementSibling.style.display = 'flex';
+          "
+        />
+        <div
+          style="
+            display: none;
+            height: 100%;
+            width: 100%;
+            background: #101014;
+            align-items: center;
+            justify-content: center;
+            color: #a78bfa;
+            font-size: 24px;
+          "
+        >
+          🛠️
+        </div>
+      </div>
+      <div class="krti-showcase-label">
+        Workshop — airframe assembly & component preparation
+      </div>
+    </div>
+  </div>
+
+  <div class="krti-showcases">
+    <!-- Landscape: Exhibition -->
+    <div class="krti-showcase-card landscape">
+      <div class="krti-img-container">
+        <img
+          src="../img/KRTI/photo_6_2026-10-02_23-28-29.jpg"
+          alt="Presenting the UAV at the competition exhibition"
+          onerror="
+            this.style.display = 'none';
+            this.nextElementSibling.style.display = 'flex';
+          "
+        />
+        <div
+          style="
+            display: none;
+            height: 100%;
+            width: 100%;
+            background: #101014;
+            align-items: center;
+            justify-content: center;
+            color: #a78bfa;
+            font-size: 24px;
+          "
+        >
+          🛩️
+        </div>
+      </div>
+      <div class="krti-showcase-label">
+        Exhibition — presenting the prototype to judges & visitors
+      </div>
+    </div>
+
+    <!-- Landscape: Team photo -->
+    <div class="krti-showcase-card landscape">
+      <div class="krti-img-container">
+        <img
+          src="../img/KRTI/photo_5_2026-10-02_23-28-29.jpg"
+          alt="Universitas Gunadarma team photo"
+          onerror="
+            this.style.display = 'none';
+            this.nextElementSibling.style.display = 'flex';
+          "
+        />
+        <div
+          style="
+            display: none;
+            height: 100%;
+            width: 100%;
+            background: #101014;
+            align-items: center;
+            justify-content: center;
+            color: #a78bfa;
+            font-size: 24px;
+          "
+        >
+          👥
+        </div>
+      </div>
+      <div class="krti-showcase-label">
+        Team — Universitas Gunadarma delegation
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="krti-footer">
+    <div class="krti-footer-col">
+      <h5>Candidate</h5>
+      <p style="font-weight: 600">Dicky Asqaeliany Ibnul Hakim</p>
+      <p>Gunadarma University · Computer System</p>
+    </div>
+    <div class="krti-footer-col">
+      <h5>Contact Info</h5>
+      <p>
+        Gmail:
+        <a href="mailto:dickyasqaelani@gmail.com">dickyasqaelani@gmail.com</a>
+      </p>
+      <p>
+        LinkedIn:
+        <a
+          href="https://www.linkedin.com/in/dicky-asqaeliany-ibnul-hakim/"
+          target="_blank"
+          >dicky-asqaeliany-ibnul-hakim</a
+        >
+      </p>
+    </div>
+  </footer>
+</div>

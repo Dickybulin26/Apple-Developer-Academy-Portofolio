@@ -5,7 +5,7 @@
         --color-bg-primary: #f7f5f0;
         --color-bg-card: #eeeae1;
         --color-text-primary: #1e2019;
-        --color-text-secondary: #5a5c52;
+        --color-text-secondary: #3c3e36;
         --color-accent: #4a7c59;
         --color-accent-light: #7ab893;
         --color-accent-muted: #c8d8c0;
@@ -18,7 +18,7 @@
             --color-bg-primary: #1a1e17;
             --color-bg-card: #222620;
             --color-text-primary: #e8e6df;
-            --color-text-secondary: #8a8e80;
+            --color-text-secondary: #b7bbae;
             --color-accent: #7ab893;
             --color-accent-light: #9fcfae;
             --color-accent-muted: #2e4a37;
@@ -42,6 +42,22 @@
         padding: 2rem 1.5rem;
         background-color: var(--color-bg-primary);
         color: var(--color-text-primary);
+    }
+
+    .eco-back {
+        display: inline-block;
+        font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: var(--color-accent);
+        margin-bottom: 1.5rem;
+        transition: opacity 0.2s ease;
+    }
+    .eco-back:hover {
+        opacity: 0.7;
     }
 
     /* ── HEADER ── */
@@ -331,7 +347,7 @@
         margin-top: 3rem;
         padding-top: 2rem;
         display: grid;
-        grid-template-columns: 1.5fr 1fr 1.5fr;
+        grid-template-columns: 1fr 1fr;
         gap: 2rem;
         font-size: 12px;
         line-height: 1.6;
@@ -355,9 +371,6 @@
         text-decoration: none;
         border-bottom: 0.5px solid var(--color-border);
     }
-    .eco-footer-right {
-        text-align: right;
-    }
 
     @media (max-width: 560px) {
         .eco-body {
@@ -373,13 +386,11 @@
             grid-template-columns: 1fr;
             gap: 1.5rem;
         }
-        .eco-footer-right {
-            text-align: left;
-        }
     }
 </style>
 
 <div class="eco-root">
+    <a class="eco-back" href="../index.html">← Back to Portfolio</a>
     <!-- ─── HEADER ─── -->
     <div class="eco-header">
         <div class="eco-tag">PKM-KC · Group Project · Semester 2</div>
@@ -398,9 +409,9 @@
     <div class="eco-body">
         <div class="eco-mockup">
             <div class="eco-mockup-placeholder">
-                <div style="font-size: 11px; color: #4a6a4c; line-height: 1.5">
+                <div style="font-size: 11px; color: var(--color-accent-light); line-height: 1.5">
                     <img
-                        src="./img/ECOTRA-PKMKC/pv11.png"
+                        src="../img/ECOTRA-PKMKC/pv11.png"
                         alt="Mobile App & IoT Prototype"
                         width="80%"
                         height="auto"
@@ -573,11 +584,11 @@
         <div class="eco-showcase-card landscape">
             <div class="eco-img-container">
                 <img
-                    src="./img/ECOTRA-PKMKC/sketsa_alur_proses_ecotra.png"
+                    src="../img/ECOTRA-PKMKC/sketsa_alur_proses_ecotra.png"
                     alt="ECOTRA IoT Hardware Prototype"
                     onerror="
                         this.style.display = 'none';
-                        this.nextSibling.style.display = 'flex';
+                        this.nextElementSibling.style.display = 'flex';
                     "
                 />
                 <div
@@ -588,7 +599,7 @@
                         background: #0e1a10;
                         align-items: center;
                         justify-content: center;
-                        color: #4a7c59;
+                        color: #7ab893;
                         font-size: 24px;
                     "
                 >
@@ -604,11 +615,11 @@
         <div class="eco-showcase-card portrait">
             <div class="eco-img-container">
                 <img
-                    src="./img/ECOTRA-PKMKC/pv4.png"
+                    src="../img/ECOTRA-PKMKC/pv4.png"
                     alt="ECOTRA Mobile App Home"
                     onerror="
                         this.style.display = 'none';
-                        this.nextSibling.style.display = 'flex';
+                        this.nextElementSibling.style.display = 'flex';
                     "
                 />
                 <div
@@ -619,7 +630,7 @@
                         background: #0e1a10;
                         align-items: center;
                         justify-content: center;
-                        color: #4a7c59;
+                        color: #7ab893;
                         font-size: 24px;
                     "
                 ></div>
@@ -632,11 +643,11 @@
         <div class="eco-showcase-card portrait">
             <div class="eco-img-container">
                 <img
-                    src="./img/ECOTRA-PKMKC/pv9.png"
+                    src="../img/ECOTRA-PKMKC/pv9.png"
                     alt="ECOTRA AI Chatbot"
                     onerror="
                         this.style.display = 'none';
-                        this.nextSibling.style.display = 'flex';
+                        this.nextElementSibling.style.display = 'flex';
                     "
                 />
                 <div
@@ -647,7 +658,7 @@
                         background: #0e1a10;
                         align-items: center;
                         justify-content: center;
-                        color: #4a7c59;
+                        color: #7ab893;
                         font-size: 24px;
                     "
                 >
@@ -662,11 +673,11 @@
         <div class="eco-showcase-card portrait">
             <div class="eco-img-container">
                 <img
-                    src="./img/ECOTRA-PKMKC/pv8.png"
+                    src="../img/ECOTRA-PKMKC/pv8.png"
                     alt="ECOTRA Automated Sprayer"
                     onerror="
                         this.style.display = 'none';
-                        this.nextSibling.style.display = 'flex';
+                        this.nextElementSibling.style.display = 'flex';
                     "
                 />
                 <div
@@ -677,7 +688,7 @@
                         background: #0e1a10;
                         align-items: center;
                         justify-content: center;
-                        color: #4a7c59;
+                        color: #7ab893;
                         font-size: 24px;
                     "
                 >
@@ -692,11 +703,11 @@
         <div class="eco-showcase-card portrait">
             <div class="eco-img-container">
                 <img
-                    src="./img/ECOTRA-PKMKC/pv7.png"
+                    src="../img/ECOTRA-PKMKC/pv7.png"
                     alt="Mobile Burger Menu"
                     onerror="
                         this.style.display = 'none';
-                        this.nextSibling.style.display = 'flex';
+                        this.nextElementSibling.style.display = 'flex';
                     "
                 />
                 <div
@@ -707,7 +718,7 @@
                         background: #0e1a10;
                         align-items: center;
                         justify-content: center;
-                        color: #4a7c59;
+                        color: #7ab893;
                         font-size: 24px;
                     "
                 >
@@ -716,6 +727,39 @@
             </div>
             <div class="eco-showcase-label">
                 Mobile Burger Menu
+            </div>
+        </div>
+    </div>
+
+    <p class="eco-section-label">Team & Documentation</p>
+    <div class="eco-showcases">
+        <div class="eco-showcase-card landscape">
+            <div class="eco-img-container">
+                <img
+                    src="../img/ECOTRA-PKMKC/ecotra_team.jpg"
+                    alt="ECOTRA team at UG Video Conference Room"
+                    onerror="
+                        this.style.display = 'none';
+                        this.nextElementSibling.style.display = 'flex';
+                    "
+                />
+                <div
+                    style="
+                        display: none;
+                        height: 100%;
+                        width: 100%;
+                        background: #0e1a10;
+                        align-items: center;
+                        justify-content: center;
+                        color: #7ab893;
+                        font-size: 24px;
+                    "
+                >
+                    👥
+                </div>
+            </div>
+            <div class="eco-showcase-label">
+                Team Photo — ECOTRA team at UG Video Conference Room
             </div>
         </div>
     </div>
@@ -742,23 +786,6 @@
                     target="_blank"
                     >dicky-asqaeliany-ibnul-hakim</a
                 >
-            </p>
-        </div>
-        <div class="eco-footer-col eco-footer-right">
-            <h5>Submission</h5>
-            <p style="font-size: 11px; font-weight: 500">
-                Portfolio Submission for
-            </p>
-            <p
-                style="
-                    font-size: 12px;
-                    color: var(--color-accent);
-                    text-transform: uppercase;
-                    letter-spacing: 0.05em;
-                    font-weight: 600;
-                "
-            >
-                Apple Developer Academy<br />Indonesia
             </p>
         </div>
     </footer>

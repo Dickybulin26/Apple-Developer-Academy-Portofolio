@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Project Portfolio of Dicky Asqaeliany Ibnul Hakim — Apple Developer Academy Submission. Featuring AbsensiPro, ECOTRA, and IoT Mini Smart Home." />
+  <meta name="description" content="Project Portfolio of Dicky Asqaeliany Ibnul Hakim — Featuring AbsensiPro, ECOTRA, IoT Mini Smart Home, and the KRTI 2026 national drone competition." />
   <title>Dicky Asqaeliany · Project Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,16 +20,18 @@
       --border: rgba(255,255,255,0.10);
       --border-hover: rgba(255,255,255,0.22);
       --text-primary: #f4f4f5;
-      --text-secondary: #a1a1aa;
-      --text-muted: #52525b;
+      --text-secondary: #d4d4d8;
+      --text-muted: #a1a1aa;
 
       --accent-a: #38bdf8;   /* AbsensiPro – sky blue */
       --accent-b: #4ade80;   /* ECOTRA – leaf green */
       --accent-c: #fb923c;   /* IoT – amber */
+      --accent-d: #a78bfa;   /* KRTI Drone – violet */
 
       --glow-a: rgba(56, 189, 248, 0.15);
       --glow-b: rgba(74, 222, 128, 0.12);
       --glow-c: rgba(251, 146, 60, 0.12);
+      --glow-d: rgba(167, 139, 250, 0.15);
     }
 
     html { scroll-behavior: smooth; }
@@ -168,7 +170,7 @@
     /* ── CARDS GRID ── */
     .cards-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.2rem;
       margin-bottom: 3rem;
       animation: fadeUp 0.8s 0.2s ease both;
@@ -201,6 +203,7 @@
     .card-a { --card-accent: var(--accent-a); --card-glow: var(--glow-a); }
     .card-b { --card-accent: var(--accent-b); --card-glow: var(--glow-b); }
     .card-c { --card-accent: var(--accent-c); --card-glow: var(--glow-c); }
+    .card-d { --card-accent: var(--accent-d); --card-glow: var(--glow-d); }
 
     /* Top gradient line */
     .card::before {
@@ -241,19 +244,6 @@
       position: absolute;
       inset: 0;
       background: linear-gradient(to bottom, transparent 40%, rgba(9,9,11,0.85) 100%);
-    }
-
-    /* Cover placeholder for missing images */
-    .card-cover-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      font-size: 36px;
-      background: linear-gradient(135deg, rgba(0,0,0,0.5), rgba(0,0,0,0.2));
     }
 
     /* Card body */
@@ -348,8 +338,9 @@
 
     .footer-inner {
       display: grid;
-      grid-template-columns: 1.5fr 1fr 1.5fr;
+      grid-template-columns: 1fr 1fr;
       gap: 2rem;
+      align-items: start;
       padding: 1.5rem 2rem;
       background: var(--surface);
       border: 0.5px solid var(--border);
@@ -362,7 +353,10 @@
       font-size: 8.5px;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--text-muted);
+      background: linear-gradient(135deg, #38bdf8, #4ade80);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
       margin-bottom: 0.6rem;
     }
     .footer-col p {
@@ -384,26 +378,8 @@
     }
     .footer-col a:hover { color: var(--text-primary); }
 
-    .footer-badge {
+    .footer-col.footer-right {
       text-align: right;
-    }
-    .footer-badge .badge-label {
-      font-size: 11px;
-      color: var(--text-muted);
-      display: block;
-      margin-bottom: 4px;
-    }
-    .footer-badge .badge-title {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      background: linear-gradient(135deg, #38bdf8, #4ade80);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      line-height: 1.5;
     }
 
     .copyright {
@@ -430,7 +406,7 @@
     @media (max-width: 720px) {
       .cards-grid { grid-template-columns: 1fr; gap: 1rem; }
       .footer-inner { grid-template-columns: 1fr; gap: 1.2rem; }
-      .footer-badge { text-align: left; }
+      .footer-col.footer-right { text-align: left; }
       .wrapper { padding: 2.5rem 1.2rem 1rem; }
     }
     @media (max-width: 480px) {
@@ -453,12 +429,12 @@
       <div class="header-label">My Project Portfolio</div>
       <h1 class="portfolio-title">
         <span class="name-line">Dicky Asqaeliany<br>Ibnul Hakim</span>
-        <span class="subtitle-line">AI Engineer · Computer System · Gunadarma University</span>
+        <span class="subtitle-line">Semester 3 · Computer System · Gunadarma University</span>
       </h1>
       <div class="header-meta">
-        <div class="meta-chip">Semester 2 · 2026</div>
-        <div class="meta-chip">Apple Developer Academy</div>
-        <div class="meta-chip">Indonesia</div>
+        <div class="meta-chip">AI Engineer</div>
+        <div class="meta-chip">IoT Engineer</div>
+        <div class="meta-chip">DevOps Engineer</div>
       </div>
     </header>
 
@@ -466,7 +442,7 @@
     <section class="cards-grid" aria-label="Projects">
 
       <!-- Card A — AbsensiPro -->
-      <a href="DickyAsqaelianyIbnulHakim_Portofolio_Absensipro.html"
+      <a href="project/DickyAsqaelianyIbnulHakim_Portofolio_Absensipro.html"
          class="card card-a"
          id="card-absensipro"
          aria-label="AbsensiPro project page">
@@ -492,21 +468,22 @@
           </div>
         </div>
         <div class="card-footer">
-          <span>Group Project · 2 Members · AI Engineer</span>
+          <span>Group Project · 2 Members</span>
           <span class="card-cta">View <span class="arrow">→</span></span>
         </div>
       </a>
 
       <!-- Card B — ECOTRA -->
-      <a href="DickyAsqaelianyIbnulHakim_Portofolio_Ecotra.html"
+      <a href="project/DickyAsqaelianyIbnulHakim_Portofolio_Ecotra.html"
          class="card card-b"
          id="card-ecotra"
          aria-label="ECOTRA project page">
         <div class="card-cover">
-          <div class="card-cover-placeholder" style="background: linear-gradient(135deg, #0d1f10, #1a3520);">
-            <span>🌿</span>
-            <span style="font-size: 11px; color: #4ade80; font-family: 'Space Mono', monospace; letter-spacing: 0.1em;">ECOTRA</span>
-          </div>
+          <img
+            src="./img/ECOTRA-PKMKC/ecotra_placeholder.png"
+            alt="ECOTRA chili plants cover"
+            loading="lazy"
+          />
         </div>
         <div class="card-body">
           <span class="card-index">Project 02 · PKM-KC Proposal</span>
@@ -523,20 +500,20 @@
           </div>
         </div>
         <div class="card-footer">
-          <span>Group Project · 5 Members · AI Engineer</span>
+          <span>Group Project · 5 Members</span>
           <span class="card-cta">View <span class="arrow">→</span></span>
         </div>
       </a>
 
       <!-- Card C — IoT Mini Smart Home -->
-      <a href="DickyAsqaelianyIbnulHakim_Portofolio_SmartHome.html"
+      <a href="project/DickyAsqaelianyIbnulHakim_Portofolio_SmartHome.html"
          class="card card-c"
          id="card-smarthome"
          aria-label="IoT Mini Smart Home project page">
         <div class="card-cover">
           <img
-            src="./img/robotik/robotik-logo.png"
-            alt="IoT Mini Smart Home circuit diagram"
+            src="./img/robotik/photo_1_2026-06-17_01-58-43.jpg"
+            alt="IoT Mini Smart Home circuit build"
             loading="lazy"
           />
         </div>
@@ -560,6 +537,38 @@
         </div>
       </a>
 
+      <!-- Card D — National Drone Competition (KRTI 2026) -->
+      <a href="project/DickyAsqaelianyIbnulHakim_Portofolio_KRTI.html"
+         class="card card-d"
+         id="card-krti"
+         aria-label="National Drone Competition project page">
+        <div class="card-cover">
+          <img
+            src="./img/KRTI/final-award.jpg"
+            alt="Fixed-wing UAV on the flight line at KRTI 2026"
+            loading="lazy"
+          />
+        </div>
+        <div class="card-body">
+          <span class="card-index">Project 04 · KRTI 2026</span>
+          <h2 class="card-title">National Drone<br>Competition</h2>
+          <p class="card-desc">
+            Fixed-wing UAV built for Kontes Robot Terbang Indonesia 2026 — airframe assembly, avionics integration, and telemetry field trials. Awarded Best Prototype.
+          </p>
+          <div class="card-tags">
+            <span class="tag">UAV</span>
+            <span class="tag">Fixed-Wing</span>
+            <span class="tag">Flight Controller</span>
+            <span class="tag">Telemetry</span>
+            <span class="tag">Mission Planner</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span>National Competition · Best Prototype</span>
+          <span class="card-cta">View <span class="arrow">→</span></span>
+        </div>
+      </a>
+
     </section>
 
     <!-- ─── DIVIDER ─── -->
@@ -573,18 +582,14 @@
           <p>
             <strong>Dicky Asqaeliany Ibnul Hakim</strong><br>
             Gunadarma University<br>
-            Computer System · Semester 2
+            Computer System · Semester 3
           </p>
         </div>
-        <div class="footer-col">
+        <div class="footer-col footer-right">
           <h6>Contact</h6>
           <a href="mailto:dickyasqaelani@gmail.com">dickyasqaelani@gmail.com</a>
           <a href="https://www.linkedin.com/in/dicky-asqaeliany-ibnul-hakim/" target="_blank" rel="noopener">linkedin.com/in/dicky-asqaeliany-ibnul-hakim</a>
-        </div>
-        <div class="footer-col footer-badge">
-          <h6>Submission</h6>
-          <span class="badge-label">Portfolio Submission for</span>
-          <span class="badge-title">Apple Developer<br>Academy Indonesia</span>
+          <a href="https://www.instagram.com/dicky_asqaelani26" target="_blank" rel="noopener">instagram.com/dicky_asqaelani26</a>
         </div>
       </div>
       <p class="copyright">© 2026 Dicky Asqaeliany Ibnul Hakim · All Rights Reserved</p>
