@@ -338,9 +338,10 @@
 
     .footer-inner {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      align-items: start;
+      grid-template-columns: 1fr;
+      justify-items: center;
+      text-align: center;
+      gap: 1.5rem;
       padding: 1.5rem 2rem;
       background: var(--surface);
       border: 0.5px solid var(--border);
@@ -381,9 +382,9 @@
     .contact-icons {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 16px;
     }
-    .footer-right .contact-icons { justify-content: flex-end; }
     .contact-icons a {
       display: inline-flex;
       color: var(--text-secondary);
@@ -395,10 +396,6 @@
       transform: translateY(-2px);
     }
     .contact-icons svg { width: 18px; height: 18px; display: block; }
-
-    .footer-col.footer-right {
-      text-align: right;
-    }
 
     .copyright {
       text-align: center;
@@ -423,8 +420,6 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 720px) {
       .cards-grid { grid-template-columns: 1fr; gap: 1rem; }
-      .footer-inner { grid-template-columns: 1fr; gap: 1.2rem; }
-      .footer-col.footer-right { text-align: left; }
       .wrapper { padding: 2.5rem 1.2rem 1rem; }
     }
     @media (max-width: 480px) {
