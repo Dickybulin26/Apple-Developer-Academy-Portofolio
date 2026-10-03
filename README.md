@@ -9,7 +9,7 @@ A static, build-free portfolio website showcasing my projects. Single-page landi
 | Home | [`index.html`](index.html) | Dark landing page with a 2×2 project card grid |
 | AbsensiPro | [`project/…_Absensipro.html`](project/DickyAsqaelianyIbnulHakim_Portofolio_Absensipro.html) | AI-powered face recognition attendance system |
 | ECOTRA | [`project/…_Ecotra.html`](project/DickyAsqaelianyIbnulHakim_Portofolio_Ecotra.html) | AI + IoT precision farming for chili cultivation (PKM-KC) |
-| IoT Mini Smart Home | [`project/…_SmartHome.html`](project/DickyAsqaelianyIbnulHakim_Portofolio_SmartHome.html) | NodeMCU-based smart home prototype for SMAN 2 Bekasi |
+| IoT Mini Smart Home | [`project/…_SmartHome.html`](project/DickyAsqaelianyIbnulHakim_Portofolio_SmartHome.html) | ESP32-based smart home prototype commissioned by SMAN 2 Bekasi |
 | KRTI 2026 | [`project/…_KRTI.html`](project/DickyAsqaelianyIbnulHakim_Portofolio_KRTI.html) | National drone competition — Best Prototype award |
 
 Every project page shares the same structure: header, hero mockup + meta table, tech stack strip, four write-up sections (Challenge / What I built / Impact / What I learned), photo showcases, and a footer with a back-link to the home page.
